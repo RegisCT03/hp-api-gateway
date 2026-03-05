@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const axios = require('axios');
 
-router.get('/', async (req, res) => {
+router.get('/characters', async (req, res) => {
     try {
         const response = await axios.get(`${process.env.THIRD_PARTY_API}/characters`);
         res.json(response.data);
