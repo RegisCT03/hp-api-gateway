@@ -7,7 +7,8 @@ router.get('/', async (req, res) => {
         const response = await axios.get(`${process.env.THIRD_PARTY_API}/spells`);
         res.json(response.data);
     } catch (error) {
-        res.status(500).json(
+        const status = error.response ? error.response.status : 500;
+        res.status(status).json(
             { error: "Error al obtener el catálogo de hechizos", 
               details: error.message 
             });
