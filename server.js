@@ -10,7 +10,9 @@ const hpStaff = require('./src/routes/staff')
 const app = express();
 const PORT = process.env.PORT || 4000;
 
-app.use(cors());
+app.use(cors({
+    origin: 'https://hp-api-front.vercel.app/'
+}));
 app.use(express.json());
 
 app.use('/api/characters', hpCharacter); 
